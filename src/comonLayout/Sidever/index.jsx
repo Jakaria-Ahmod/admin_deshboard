@@ -4,7 +4,7 @@ import SideMenu from './components/SideMenu';
 
 const SideBar = () => {
   return (
-    <div className="bg-white shadow-2xl w-[300px]  h-screen">
+    <div className="bg-white shadow-2xl w-[300px] fixed h-screen">
       <div>
         <div className="pt-[24px] text-center">
           <Link to="/">

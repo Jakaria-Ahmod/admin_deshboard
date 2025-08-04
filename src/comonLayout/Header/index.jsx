@@ -10,7 +10,7 @@ const Heder = () => {
     photoURL: 'https://i.ibb.co/ZYW3VTp/brown-brim.png',
   };
   return (
-    <div>
+    <div className="fixed w-[1620px] bg-white">
       <div className="px-[30px] py-[16px] flex justify-between">
         <HederLeft></HederLeft>
         <div>

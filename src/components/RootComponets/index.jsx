@@ -18,7 +18,7 @@ const RootComponents = () => {
         </header>
 
         {/* Dynamic Page Content */}
-        <main className="bg-white01 p-[30px]">
+        <main className="bg-white01 pt-[120px] px-[50px]">
           <Outlet />
         </main>
       </div>
