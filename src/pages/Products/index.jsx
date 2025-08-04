@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ProductSlider from './components/productSlider';
+import ProductSlider from './components/ProductSlider';
 import { products as initialProducts } from './components/Product.api';
 import ProductCard from '../../globalComponents/ProductCard';
 // Import Swiper React components
