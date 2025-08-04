@@ -5,24 +5,21 @@ import SideBar from '../../comonLayout/Sidever';
 
 const RootComponents = () => {
   return (
-    <div className="flex">
+    <div className="flex gap-x-[30px]">
       <div className="w-[270px]">
         <aside>
-          {/* <SideBar /> */}
-          <h1 className="bg-black">side</h1>
+          <SideBar />
         </aside>
       </div>
       <div className="w-[1650px]">
         {/* Header */}
         <header>
-          {/* <Header /> */}
-          <h1 className="bg-green-700">heaeer</h1>
+          <Header />
         </header>
 
         {/* Dynamic Page Content */}
-        <main>
-          {/* <Outlet /> */}
-          <h1>side</h1>
+        <main className="bg-white01 p-[30px]">
+          <Outlet />
         </main>
       </div>
     </div>

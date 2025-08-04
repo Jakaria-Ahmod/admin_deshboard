@@ -1,0 +1,78 @@
+import {
+  FaUsers,
+  FaBoxOpen,
+  FaDollarSign,
+  FaSpinner,
+  FaMoneyCheckAlt,
+  FaUndo,
+  FaChartLine,
+  FaPercentage,
+} from 'react-icons/fa';
+import { IoMdTrendingUp } from 'react-icons/io';
+
+export const cardData = [
+  {
+    title: 'Total Users',
+    value: '40,689',
+    percent: '8.5%',
+    icon: <FaUsers size={50} color="#8280FF" />,
+    trendColor: '#00B69B',
+    subText: 'Up from yesterday',
+  },
+  {
+    title: 'Total Orders',
+    value: '12,347',
+    percent: '6.2%',
+    icon: <FaBoxOpen size={50} color="#FFA500" />,
+    trendColor: '#00B69B',
+    subText: 'Compared to last day',
+  },
+  {
+    title: 'Total Sales',
+    value: '$120,984',
+    percent: '12.4%',
+    icon: <FaDollarSign size={50} color="#4CAF50" />,
+    trendColor: '#00B69B',
+    subText: 'Growth this week',
+  },
+  {
+    title: 'Pending Orders',
+    value: '742',
+    percent: '3.1%',
+    icon: <FaSpinner size={50} color="#FF6B6B" />,
+    trendColor: '#FFA500',
+    subText: 'Still Processing',
+  },
+  {
+    title: 'Revenue',
+    value: '$89,500',
+    percent: '10.8%',
+    icon: <FaMoneyCheckAlt size={50} color="#00B69B" />,
+    trendColor: '#00B69B',
+    subText: 'Monthly Revenue',
+  },
+  {
+    title: 'Refunds',
+    value: '230',
+    percent: '1.2%',
+    icon: <FaUndo size={50} color="#FF0000" />,
+    trendColor: '#FF0000',
+    subText: 'Requested refunds',
+  },
+  {
+    title: 'Visitors',
+    value: '15,231',
+    percent: '9.9%',
+    icon: <FaChartLine size={50} color="#00B69B" />,
+    trendColor: '#00B69B',
+    subText: 'Site visitors today',
+  },
+  {
+    title: 'Conversion Rate',
+    value: '2.5%',
+    percent: '0.9%',
+    icon: <FaPercentage size={50} color="#6A5ACD" />,
+    trendColor: '#00B69B',
+    subText: 'From total visitors',
+  },
+];
