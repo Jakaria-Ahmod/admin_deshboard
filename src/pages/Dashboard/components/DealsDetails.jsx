@@ -32,16 +32,11 @@ const DealsDetails = () => {
           {dealsData.map((deal, index) => (
             <tr key={index} className="hover:bg-gray-50">
               <td className="border border-gray-600 px-4 py-2 flex items-center gap-2">
-                {/* <img
-                  src={deal.productImg}
-                  alt={deal.productName}
-                  className="w-10 h-10 rounded object-cover"
-                /> */}
                 <span>{deal.productName}</span>
               </td>
               <td className="border px-4 py-2">{deal.location}</td>
               <td className="border px-4 py-2">{deal.dateTime}</td>
-              <td className="border px-4 py-2">{deal.piece}</td>
+              <td className="border px-4 py-2">${deal.piece}</td>
               <td className="border px-4 py-2">{deal.amount}</td>
               <td className="border px-4 py-2">
                 <span

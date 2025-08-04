@@ -6,6 +6,7 @@ import SimpleLineChart from './components/LineChart';
 import DealsDetails from './components/DealsDetails';
 
 const Dashboard = () => {
+  window.scrollTo(0, 0);
   return (
     <div>
       <div className="pb-[80px]">
