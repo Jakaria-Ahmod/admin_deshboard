@@ -15,6 +15,7 @@ import UIElements from './pages/UIElements';
 import Team from './pages/Team';
 import Table from './pages/Table';
 import Settings from './pages/Settings';
+import NotFound from './pages/notFound';
 function App() {
   const router = createBrowserRouter([
     {
@@ -84,8 +85,8 @@ function App() {
         },
 
         {
-          path: '/Logout',
-          element: <div>Logout</div>,
+          path: '*',
+          element: <NotFound></NotFound>,
         },
       ],
     },

@@ -25,7 +25,7 @@ const Favorites = () => {
           <h1 className="text-[#202224] font-nunito text-[32px] font-bold tracking-[-0.114px] capitalize">
             Favorites
           </h1>
-          <div className="grid grid-cols-4 gap-4 mt-[30px]">
+          <div className="grid sm:grid-cols-1 justify-center md:grid-cols-3 lg:grid-cols-4 gap-4 mt-[30px]">
             {products.map(product => (
               <ProductCard
                 key={product.id}

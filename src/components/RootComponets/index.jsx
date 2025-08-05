@@ -1,24 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../../comonLayout/Header';
-import { Outlet } from 'react-router'; // Ensure correct import
+import { Outlet } from 'react-router';
 import SideBar from '../../comonLayout/Sidever';
+import { Menu } from 'lucide-react';
 
 const RootComponents = () => {
-  return (
-    <div className="flex gap-x-[30px]">
-      <div className="w-[270px]">
-        <aside>
-          <SideBar />
-        </aside>
-      </div>
-      <div className="w-[1650px]">
-        {/* Header */}
-        <header>
-          <Header />
-        </header>
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-        {/* Dynamic Page Content */}
-        <main className="bg-white01 pt-[120px] pb-[50px] px-[50px] ">
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  return (
+    <div className="flex h-screen overflow-hidden relative">
+      {/* Mobile Menu Button */}
+      {/* Sidebar */}
+      <aside>
+        <div className="h-full overflow-y-auto">
+          <SideBar />
+        </div>
+      </aside>
+      {/* Overlay for mobile sidebar close */}
+      {isSidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black opacity-30 z-30 md:hidden"
+          onClick={toggleSidebar}
+        ></div>
+      )}
+      {/* Main Content */}
+      <div className="flex-1 flex flex-col h-full w-full">
+        {/* <header className="bg-white shadow w-full z-10">
+          <Header />
+        </header> */}
+
+        <main className="flex-1 overflow-y-auto bg-gray-100 p-6">
           <Outlet />
         </main>
       </div>

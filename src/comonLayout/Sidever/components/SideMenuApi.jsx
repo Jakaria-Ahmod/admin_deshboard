@@ -29,13 +29,13 @@ export const routesData = [
     icon: <MdDashboard />,
     element: <div>Dashboard</div>,
   },
-  {
-    id: 3,
-    path: '/Products',
-    name: 'Products',
-    icon: <FaProductHunt />,
-    element: <div>Products</div>,
-  },
+  // {
+  //   id: 3,
+  //   path: '/Products',
+  //   name: 'Products',
+  //   icon: <FaProductHunt />,
+  //   element: <div>Products</div>,
+  // },
   {
     id: 4,
     path: '/Favorites',
@@ -129,7 +129,7 @@ export const routesData = [
   },
   {
     id: 17,
-    path: '/Logout',
+    path: '/',
     name: 'Logout',
     icon: <MdLogout />,
     element: <div>Logout</div>,

@@ -1,46 +1,51 @@
 import React from 'react';
 import TotalCard from '../../globalComponents/TotalCard';
 import { cardData } from './components/TotalUserAndSels.api';
-import LineAnimation from './components/LineChart';
 import SimpleLineChart from './components/LineChart';
 import DealsDetails from './components/DealsDetails';
 
 const Dashboard = () => {
-  window.scrollTo(0, 0);
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div>
-      <div className="pb-[80px]">
-        <h1 className="text-balck01 font-nunito text-[32px] font-bold ">
-          Dashboard
-        </h1>
-        <div className="mt-[30px]">
-          <div className="grid grid-cols-4 gap-[30px]">
-            {cardData.map(item => (
-              <div>
-                <TotalCard
-                  title={item?.title}
-                  value={item?.value}
-                  percent={item?.percent}
-                  subText={item?.subText}
-                  trendColor={item?.trendColor}
-                  icon={item?.icon}
-                ></TotalCard>
-              </div>
-            ))}
-          </div>
-          <div className="bg-white shadow-1xl mt-[30px] py-[37px] px-[30px] rounded-md">
-            <h1 className="text-balck01 font-nunito text-[32px] font-bold mb-[51px]">
-              Sales Details
-            </h1>
-            <SimpleLineChart></SimpleLineChart>
-          </div>
-          <div className="bg-white shadow-1xl mt-[30px] py-[37px] px-[30px] rounded-md">
-            <h1 className="text-balck01 font-nunito text-[32px] font-bold mb-[51px]">
-              Deals Details
-            </h1>
-            <DealsDetails></DealsDetails>
-          </div>
+    <div className="min-h-screen px-4 sm:px-6 lg:px-10 py-6 bg-gray-50">
+      <h1 className="text-black font-nunito text-2xl sm:text-3xl font-bold">
+        Dashboard
+      </h1>
+
+      <div className="mt-8 space-y-8">
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {cardData.map((item, idx) => (
+            <TotalCard
+              key={idx}
+              title={item?.title}
+              value={item?.value}
+              percent={item?.percent}
+              subText={item?.subText}
+              trendColor={item?.trendColor}
+              icon={item?.icon}
+            />
+          ))}
         </div>
+
+        {/* Sales Details Chart */}
+        <section className="bg-white shadow-lg rounded-md p-6 sm:p-8">
+          <h2 className="text-black font-nunito text-xl sm:text-2xl font-bold mb-8">
+            Sales Details
+          </h2>
+          <SimpleLineChart />
+        </section>
+
+        {/* Deals Details */}
+        <section className="bg-white shadow-lg rounded-md p-6 sm:p-8 hidden md:block">
+          <h2 className="text-black font-nunito text-xl sm:text-2xl font-bold mb-8">
+            Deals Details
+          </h2>
+          <DealsDetails />
+        </section>
       </div>
     </div>
   );

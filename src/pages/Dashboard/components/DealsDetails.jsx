@@ -16,31 +16,51 @@ const getStatusStyle = status => {
 
 const DealsDetails = () => {
   return (
-    <div>
-      <table className="w-full text-start border border-gray-300">
+    <div className="overflow-auto">
+      <table className="lg:w-full min-w-[600px] text-left border border-gray-300">
         <thead>
-          <tr className="bg-gray-100 text-left">
-            <th className="border px-4 py-2">Product</th>
-            <th className="border px-4 py-2">Location</th>
-            <th className="border px-4 py-2">Date - Time</th>
-            <th className="border px-4 py-2">Piece</th>
-            <th className="border px-4 py-2">Amount</th>
-            <th className="border px-4 py-2">Status</th>
+          <tr className="bg-gray-100">
+            <th className="border px-3 py-2 text-xs sm:text-sm md:text-base">
+              Product
+            </th>
+            <th className="border px-3 py-2 text-xs sm:text-sm md:text-base">
+              Location
+            </th>
+            <th className="border px-3 py-2 text-xs sm:text-sm md:text-base">
+              Date - Time
+            </th>
+            <th className="border px-3 py-2 text-xs sm:text-sm md:text-base">
+              Piece
+            </th>
+            <th className="border px-3 py-2 text-xs sm:text-sm md:text-base">
+              Amount
+            </th>
+            <th className="border px-3 py-2 text-xs sm:text-sm md:text-base">
+              Status
+            </th>
           </tr>
         </thead>
         <tbody>
           {dealsData.map((deal, index) => (
             <tr key={index} className="hover:bg-gray-50">
-              <td className="border border-gray-600 px-4 py-2 flex items-center gap-2">
+              <td className="border border-gray-600 px-3 py-2 flex items-center gap-2 text-xs sm:text-sm md:text-base">
                 <span>{deal.productName}</span>
               </td>
-              <td className="border px-4 py-2">{deal.location}</td>
-              <td className="border px-4 py-2">{deal.dateTime}</td>
-              <td className="border px-4 py-2">${deal.piece}</td>
-              <td className="border px-4 py-2">{deal.amount}</td>
-              <td className="border px-4 py-2">
+              <td className="border px-3 py-2 text-xs sm:text-sm md:text-base">
+                {deal.location}
+              </td>
+              <td className="border px-3 py-2 text-xs sm:text-sm md:text-base">
+                {deal.dateTime}
+              </td>
+              <td className="border px-3 py-2 text-xs sm:text-sm md:text-base">
+                {deal.piece}
+              </td>
+              <td className="border px-3 py-2 text-xs sm:text-sm md:text-base">
+                {deal.amount}
+              </td>
+              <td className="border px-3 py-2 text-xs sm:text-sm md:text-base">
                 <span
-                  className={`text-sm font-medium px-3 py-1 rounded border ${getStatusStyle(
+                  className={`text-[10px] sm:text-xs md:text-sm font-medium px-3 py-1 rounded border ${getStatusStyle(
                     deal.status
                   )}`}
                 >
