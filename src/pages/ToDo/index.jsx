@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const ToDo = () => {
   const [task, setTask] = useState('');
@@ -10,7 +10,9 @@ const ToDo = () => {
       setTask('');
     }
   };
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const handleToggleComplete = index => {
     const updatedTasks = [...tasks];
     updatedTasks[index].completed = !updatedTasks[index].completed;

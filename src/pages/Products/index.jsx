@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ProductSlider from './components/ProductSlider';
 import { products as initialProducts } from './components/Product.api';
 import ProductCard from '../../globalComponents/ProductCard';
@@ -10,6 +10,9 @@ import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 
 const Products = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [productList, setProductList] = useState(initialProducts);
 
   const toggleFavorite = id => {

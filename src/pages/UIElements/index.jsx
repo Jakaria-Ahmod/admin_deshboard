@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { use, useEffect } from 'react';
 
 const UIElements = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="p-8 bg-gray-100 min-h-screen">
       <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">

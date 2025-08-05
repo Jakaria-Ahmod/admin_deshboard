@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const NotFound = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 px-6">
       <h1 className="text-9xl font-extrabold text-blue-600 mb-6">404</h1>

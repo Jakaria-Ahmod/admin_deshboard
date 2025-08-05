@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Invoice = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const invoice = {
     invoiceId: 'INV-1023',
     date: '2025-08-05',

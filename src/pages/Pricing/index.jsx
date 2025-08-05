@@ -1,30 +1,10 @@
-import React from 'react';
-
-const plans = [
-  {
-    title: 'Basic',
-    price: 'Free',
-    features: ['1 Project', 'Community Support', 'Limited Access'],
-    buttonText: 'Get Started',
-    highlight: false,
-  },
-  {
-    title: 'Standard',
-    price: '$9.99/mo',
-    features: ['5 Projects', 'Email Support', 'Standard Access'],
-    buttonText: 'Buy Now',
-    highlight: true,
-  },
-  {
-    title: 'Premium',
-    price: '$19.99/mo',
-    features: ['Unlimited Projects', 'Priority Support', 'Full Access'],
-    buttonText: 'Buy Now',
-    highlight: false,
-  },
-];
+import React, { useEffect } from 'react';
+import { plans } from './PirceingApi';
 
 const Pricing = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 h-screen">
       <div className="max-w-7xl mx-auto text-center">

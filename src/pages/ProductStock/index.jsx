@@ -1,155 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { products as initialProducts } from './PorductStockApi';
 
 const ProductStock = () => {
-  const products = [
-    {
-      id: 1,
-      name: 'iPhone 15 Pro',
-      sku: 'APL-IP15P',
-      quantity: 20,
-      status: 'In Stock',
-    },
-    {
-      id: 2,
-      name: 'Samsung Galaxy S24',
-      sku: 'SMS-S24',
-      quantity: 5,
-      status: 'Low Stock',
-    },
-    {
-      id: 3,
-      name: 'Google Pixel 9',
-      sku: 'GGL-PX9',
-      quantity: 0,
-      status: 'Out of Stock',
-    },
-    {
-      id: 1,
-      name: 'iPhone 15 Pro',
-      sku: 'APL-IP15P',
-      quantity: 20,
-      status: 'In Stock',
-    },
-    {
-      id: 2,
-      name: 'Samsung Galaxy S24',
-      sku: 'SMS-S24',
-      quantity: 5,
-      status: 'Low Stock',
-    },
-    {
-      id: 3,
-      name: 'Google Pixel 9',
-      sku: 'GGL-PX9',
-      quantity: 0,
-      status: 'Out of Stock',
-    },
-    {
-      id: 1,
-      name: 'iPhone 15 Pro',
-      sku: 'APL-IP15P',
-      quantity: 20,
-      status: 'In Stock',
-    },
-    {
-      id: 2,
-      name: 'Samsung Galaxy S24',
-      sku: 'SMS-S24',
-      quantity: 5,
-      status: 'Low Stock',
-    },
-    {
-      id: 3,
-      name: 'Google Pixel 9',
-      sku: 'GGL-PX9',
-      quantity: 0,
-      status: 'Out of Stock',
-    },
-    {
-      id: 1,
-      name: 'iPhone 15 Pro',
-      sku: 'APL-IP15P',
-      quantity: 20,
-      status: 'In Stock',
-    },
-    {
-      id: 2,
-      name: 'Samsung Galaxy S24',
-      sku: 'SMS-S24',
-      quantity: 5,
-      status: 'Low Stock',
-    },
-    {
-      id: 3,
-      name: 'Google Pixel 9',
-      sku: 'GGL-PX9',
-      quantity: 0,
-      status: 'Out of Stock',
-    },
-    {
-      id: 1,
-      name: 'iPhone 15 Pro',
-      sku: 'APL-IP15P',
-      quantity: 20,
-      status: 'In Stock',
-    },
-    {
-      id: 2,
-      name: 'Samsung Galaxy S24',
-      sku: 'SMS-S24',
-      quantity: 5,
-      status: 'Low Stock',
-    },
-    {
-      id: 3,
-      name: 'Google Pixel 9',
-      sku: 'GGL-PX9',
-      quantity: 0,
-      status: 'Out of Stock',
-    },
-    {
-      id: 1,
-      name: 'iPhone 15 Pro',
-      sku: 'APL-IP15P',
-      quantity: 20,
-      status: 'In Stock',
-    },
-    {
-      id: 2,
-      name: 'Samsung Galaxy S24',
-      sku: 'SMS-S24',
-      quantity: 5,
-      status: 'Low Stock',
-    },
-    {
-      id: 3,
-      name: 'Google Pixel 9',
-      sku: 'GGL-PX9',
-      quantity: 0,
-      status: 'Out of Stock',
-    },
-    {
-      id: 1,
-      name: 'iPhone 15 Pro',
-      sku: 'APL-IP15P',
-      quantity: 20,
-      status: 'In Stock',
-    },
-    {
-      id: 2,
-      name: 'Samsung Galaxy S24',
-      sku: 'SMS-S24',
-      quantity: 5,
-      status: 'Low Stock',
-    },
-    {
-      id: 3,
-      name: 'Google Pixel 9',
-      sku: 'GGL-PX9',
-      quantity: 0,
-      status: 'Out of Stock',
-    },
-  ];
+  const [products, setProducts] = useState(initialProducts);
 
   const getStatusColor = status => {
     switch (status) {
@@ -162,6 +15,16 @@ const ProductStock = () => {
       default:
         return '';
     }
+  };
+
+  const handleEdit = product => {
+    alert(`Editing product: ${product.name}`);
+    console.log('Edit product:', product);
+  };
+
+  const handleDelete = productId => {
+    setProducts(products.filter(product => product.id !== productId));
+    console.log(productId);
   };
 
   return (
@@ -179,11 +42,8 @@ const ProductStock = () => {
             </tr>
           </thead>
           <tbody>
-            {products.map(product => (
-              <tr
-                key={product.id}
-                className="border-t hover:bg-gray-50 text-sm"
-              >
+            {products.map((product, index) => (
+              <tr key={index} className="border-t hover:bg-gray-50 text-sm">
                 <td className="py-3 px-4">{product.name}</td>
                 <td className="py-3 px-4">{product.sku}</td>
                 <td className="py-3 px-4">{product.quantity}</td>
@@ -197,15 +57,28 @@ const ProductStock = () => {
                   </span>
                 </td>
                 <td className="py-3 px-4 space-x-2">
-                  <button className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 text-sm rounded">
+                  <button
+                    onClick={() => handleEdit(product)}
+                    className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 text-sm rounded"
+                  >
                     Edit
                   </button>
-                  <button className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 text-sm rounded">
+                  <button
+                    onClick={() => handleDelete(product?.id)}
+                    className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 text-sm rounded"
+                  >
                     Delete
                   </button>
                 </td>
               </tr>
             ))}
+            {products.length === 0 && (
+              <tr>
+                <td colSpan="5" className="text-center py-4 text-gray-500">
+                  No products available.
+                </td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>

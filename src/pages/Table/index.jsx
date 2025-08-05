@@ -1,76 +1,59 @@
-import React from 'react';
-
-const data = [
-  {
-    id: 1,
-    name: 'Jakaria Ahmod',
-    role: 'Frontend Developer',
-    email: 'jakaria@example.com',
-    status: 'Active',
-  },
-  {
-    id: 2,
-    name: 'Sarah Khan',
-    role: 'Backend Developer',
-    email: 'sarah@example.com',
-    status: 'Inactive',
-  },
-  {
-    id: 3,
-    name: 'Rafi Ahmed',
-    role: 'UI/UX Designer',
-    email: 'rafi@example.com',
-    status: 'Active',
-  },
-  {
-    id: 4,
-    name: 'Nadia Islam',
-    role: 'Project Manager',
-    email: 'nadia@example.com',
-    status: 'Active',
-  },
-  {
-    id: 5,
-    name: 'Arif Hossain',
-    role: 'DevOps Engineer',
-    email: 'arif@example.com',
-    status: 'Inactive',
-  },
-];
+import React, { useEffect } from 'react';
+import { data } from './TabaleApi';
 
 const Table = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="p-6 bg-gray-100 min-h-screen flex justify-center">
-      <div className="overflow-x-auto w-full max-w-5xl bg-white rounded-lg shadow-md">
-        <table className="min-w-full table-auto">
-          <thead className="bg-gray-200 text-gray-700">
-            <tr>
-              <th className="px-6 py-3 text-left font-semibold">Name</th>
-              <th className="px-6 py-3 text-left font-semibold">Role</th>
-              <th className="px-6 py-3 text-left font-semibold">Email</th>
-              <th className="px-6 py-3 text-left font-semibold">Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map(({ id, name, role, email, status }) => (
-              <tr
-                key={id}
-                className="border-b hover:bg-gray-100 cursor-pointer transition"
-              >
-                <td className="px-6 py-4 whitespace-nowrap">{name}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{role}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{email}</td>
-                <td
-                  className={`px-6 py-4 whitespace-nowrap font-semibold ${
-                    status === 'Active' ? 'text-green-600' : 'text-red-600'
-                  }`}
-                >
-                  {status}
-                </td>
+    <div className="min-h-screen bg-gray-100 p-4 md:p-8 flex flex-col items-center justify-center">
+      <div className="w-full max-w-6xl bg-white shadow-lg rounded-lg overflow-hidden">
+        <div className="overflow-x-auto">
+          <table className="min-w-full divide-y divide-gray-200 text-sm md:text-base">
+            <thead className="bg-gray-50 sticky top-0 z-10">
+              <tr>
+                <th className="px-6 py-4 text-left font-semibold text-gray-700">
+                  Name
+                </th>
+                <th className="px-6 py-4 text-left font-semibold text-gray-700">
+                  Role
+                </th>
+                <th className="px-6 py-4 text-left font-semibold text-gray-700">
+                  Email
+                </th>
+                <th className="px-6 py-4 text-left font-semibold text-gray-700">
+                  Status
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="bg-white divide-y divide-gray-200">
+              {data.map(({ id, name, role, email, status }) => (
+                <tr
+                  key={id}
+                  className="hover:bg-gray-50 transition duration-150 ease-in-out"
+                >
+                  <td className="px-6 py-4 whitespace-nowrap text-gray-800">
+                    {name}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-gray-600">
+                    {role}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-blue-600 hover:underline">
+                    {email}
+                  </td>
+                  <td
+                    className={`px-6 py-4 whitespace-nowrap font-semibold ${
+                      status === 'Active' ? 'text-green-600' : 'text-red-500'
+                    }`}
+                  >
+                    {status}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
@@ -6,6 +6,9 @@ const dates = Array.from({ length: 31 }, (_, i) => i + 1);
 
 const Calender = () => {
   const today = new Date().getDate();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="p-6 max-w-4xl mx-auto h-screen">

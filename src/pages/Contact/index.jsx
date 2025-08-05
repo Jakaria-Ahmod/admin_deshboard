@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Contact = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
       <div className="w-full max-w-2xl bg-white rounded-lg shadow-md p-8">

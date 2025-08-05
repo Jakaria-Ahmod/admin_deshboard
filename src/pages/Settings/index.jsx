@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Settings = () => {
   const [settings, setSettings] = useState({
@@ -21,7 +21,9 @@ const Settings = () => {
     alert('Settings saved!');
     // API call or localStorage save can be added here
   };
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center p-6">
       <div className="bg-white rounded-lg shadow-md p-8 w-full max-w-xl">

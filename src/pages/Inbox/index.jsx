@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ComposeModal from './components/ComposeModel';
 import EmailClient from './components/EmailClint';
 
@@ -8,6 +8,9 @@ const Inbox = () => {
   const handleSendEmail = data => {
     console.log('Send this email:', data);
   };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
       <EmailClient></EmailClient>

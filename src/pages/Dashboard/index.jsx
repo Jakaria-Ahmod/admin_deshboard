@@ -10,7 +10,7 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="min-h-screen px-4 sm:px-6 lg:px-10 py-6 bg-gray-50">
+    <div className="min-h-screen  bg-gray-50">
       <h1 className="text-black font-nunito text-2xl sm:text-3xl font-bold">
         Dashboard
       </h1>
